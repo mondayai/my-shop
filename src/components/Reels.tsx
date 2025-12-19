@@ -32,6 +32,13 @@ export default function Reels() {
     // ตัวแปรสำหรับเก็บ Cleanup functions
     const cleanupCleaners: Array<() => void> = [];
 
+    // Variables for Cleanup (Hoisted to useEffect scope)
+    let modalEl: HTMLElement | null = null;
+    let touchBlocker: any = null;
+    let mutationObserver: MutationObserver | null = null;
+    let scrollLocked = false;
+    let savedScrollY = 0;
+
     // --- BEGIN LOGIC ---
     (function () {
       if (typeof window === "undefined") return;
@@ -57,12 +64,7 @@ export default function Reels() {
       let modalWantsPlay = false;
       let lastGestureTs = 0;
 
-      // Variables for Cleanup
-      let modalEl: HTMLElement | null = null;
-      let touchBlocker: any = null;
-      let mutationObserver: MutationObserver | null = null;
-      let scrollLocked = false;
-      let savedScrollY = 0;
+      // Variables for Cleanup - Declarations moved to parent scope
 
       // Helper to add event listener and auto-register cleanup
       function addEvent(

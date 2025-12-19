@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NavAuth from "./NavAuth";
 
 export default function Nav() {
   return (
@@ -73,12 +74,7 @@ export default function Nav() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link
-            href="#"
-            className="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white transition-colors bg-[var(--primary)] rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-          >
-            Download
-          </Link>
+          <NavAuth />
         </div>
       </div>
     </header>
