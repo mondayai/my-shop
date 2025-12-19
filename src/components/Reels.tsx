@@ -112,9 +112,6 @@ export default function Reels() {
       /* ================================
            Scroll Locking
         =================================== */
-      /* ================================
-           Scroll Locking (Disabled for Floating Player)
-        =================================== */
       function lockScroll() {
         // Disabled
       }
