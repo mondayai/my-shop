@@ -19,6 +19,7 @@ model User {
   updatedAt    DateTime  @updatedAt
   conversations Conversation[]
   messages      Message[]
+  sessions      Session[]
 }
 
 model Category {
@@ -127,4 +128,13 @@ model Message {
 enum SenderType {
   USER
   BRAND
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
 }

@@ -40,7 +40,7 @@ export async function GET(
     // 2. Mark as Read (Side Effect)
     // We update the reader's lastReadAt
     if (senderType === "USER") {
-      await prisma.conversation.update({ด
+      await prisma.conversation.update({
         where: { id: conversationId },
         data: { userLastReadAt: new Date() },
       });
